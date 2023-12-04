@@ -1,4 +1,7 @@
-
+//Renders one pokemon to the DOM
+function renderPokemon(data) {
+    console.log(data)
+}
 
 //handles the submit event by taking the user input and doing a get request to the api
 function handleSubmit(event) {
@@ -12,9 +15,7 @@ function handleSubmit(event) {
         }
         return response.json();
     })
-    .then(data => {
-        console.log(data) 
-    })
+    .then(data => renderPokemon(data))
     .catch(error => {
         console.error('Error fetching data:', error);
     });
