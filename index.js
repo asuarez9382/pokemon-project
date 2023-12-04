@@ -1,32 +1,37 @@
-//Pokemon Name Data
-
-const url = `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`
-fetch(url)
-.then(response => {
-    if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-    }
-    return response.json();
-})
-.then(data => getsPokemonNames(data))
-.catch(error => {
-    console.error('Error fetching data:', error);
-});
 
 //Grabs all the names of the Pokemon from the API
 function getsPokemonNames(data) {
     const pokemonNames = []
     for(item of data['results']) {
-        pokemonNames.push(item['name'])
+        pokemonNames.push(item)
     }
-    console.log(pokemonNames.length)
+    renderRandomPokemon(pokemonNames)
 }
 
+//Renders 5 random pokemon to the DOM
 
-  
+function renderRandomPokemon(pokemonNames) {
+    const shuffledNames = [...pokemonNames].sort(() => Math.random() - 0.5);
 
+    for(pokemonObject of shuffledNames.slice(0, 5)) {
+        console.log(pokemonObject)
+        let url = `https://pokeapi.co/api/v2/pokemon/${pokemonObject['name']}`
+        fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => renderPokemon(data))
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
+    }
+    
+}
 
-//Renders one pokemon to the DOM
+ //Renders one pokemon to the DOM
 function renderPokemon(data) {
     const name = data['name'];
     const type = data["types"]["0"]["type"]["name"];
@@ -55,6 +60,26 @@ function renderPokemon(data) {
     pokemonList.appendChild(pokemonCard)
 }
 
+//Handlers
+
+//handles the click event by randomly choosing 5 pokemon
+function handleClick(event) {
+
+    //GETs all the pokemon from the API
+    const url = `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`
+    fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => getsPokemonNames(data))
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
+}
+
 //handles the submit event by taking the user input and doing a get request to the api
 function handleSubmit(event) {
     event.preventDefault()
@@ -81,9 +106,7 @@ document.addEventListener("DOMContentLoaded", function() {
     searchBarForm.addEventListener("submit", handleSubmit)
 
     //Adds an event listener on the random button
-    randomBtn.addEventListener("click", event => {
-        console.log(event)
-    })
+    randomBtn.addEventListener("click", handleClick)
 })
 
  
