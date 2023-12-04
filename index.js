@@ -75,9 +75,15 @@ function handleSubmit(event) {
 
 document.addEventListener("DOMContentLoaded", function() {
     const searchBarForm = document.querySelector("#search-bar-form")
+    const randomBtn = document.querySelector("#random-btn")
 
     //Adds an event listener on the search bar button 
     searchBarForm.addEventListener("submit", handleSubmit)
+
+    //Adds an event listener on the random button
+    randomBtn.addEventListener("click", event => {
+        console.log(event)
+    })
 })
 
  
