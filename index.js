@@ -15,13 +15,16 @@ fetch(url)
   });
 */
 
-document.addEventListener("DOMContentLoaded", function() {
-    const searchBarForm = document.querySelector("#search-bar-form")
-    searchBarForm.addEventListener("submit", event => {
+function handleSubmit(event) {
     event.preventDefault()
     const userInput = document.querySelector("#search-bar")
     console.log(userInput.value)
-})
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+    const searchBarForm = document.querySelector("#search-bar-form")
+
+    searchBarForm.addEventListener("submit", handleSubmit)
 })
 
  
