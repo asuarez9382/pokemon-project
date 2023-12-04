@@ -1,6 +1,9 @@
 //Renders one pokemon to the DOM
 function renderPokemon(data) {
     console.log(data)
+    console.log(data['name'])
+    console.log(data["types"]["0"]["type"]["name"])
+    console.log(data["sprites"]["other"]["official-artwork"]["front_default"])
 }
 
 //handles the submit event by taking the user input and doing a get request to the api
