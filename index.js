@@ -15,9 +15,13 @@ fetch(url)
   });
 */
 
-const searchBtn = document.querySelector("#search-btn")
-searchBtn.addEventListener("click", event => {
+document.addEventListener("DOMContentLoaded", function() {
+    const searchBarForm = document.querySelector("#search-bar-form")
+    searchBarForm.addEventListener("submit", event => {
     event.preventDefault()
-    console.log(event)
+    const userInput = document.querySelector("#search-bar")
+    console.log(userInput.value)
 })
+})
+
  
