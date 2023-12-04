@@ -13,8 +13,12 @@ function getsPokemonNames(data) {
 function renderRandomPokemon(pokemonNames) {
     const shuffledNames = [...pokemonNames].sort(() => Math.random() - 0.5);
 
+    const pokemonList = document.getElementById('pokemon-list');
+    pokemonList.innerHTML = ''; // Clear previous entries
+    
+    //Loops through the pokemon objects and renders each to the DOM
     for(pokemonObject of shuffledNames.slice(0, 5)) {
-        console.log(pokemonObject)
+        
         let url = `https://pokeapi.co/api/v2/pokemon/${pokemonObject['name']}`
         fetch(url)
         .then(response => {
@@ -37,12 +41,6 @@ function renderPokemon(data) {
     const type = data["types"]["0"]["type"]["name"];
     const image = data["sprites"]["other"]["official-artwork"]["front_default"]
     const experience = data["base_experience"]
-
-    console.log(data)
-    console.log(name)
-    console.log(type)
-    console.log(image)
-    console.log(experience)
 
     const pokemonCard = document.createElement("p")
     pokemonCard.id = "pokemon-card"
