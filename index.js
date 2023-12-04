@@ -18,7 +18,20 @@ fetch(url)
 function handleSubmit(event) {
     event.preventDefault()
     const userInput = document.querySelector("#search-bar")
-    console.log(userInput.value)
+    const url = `https://pokeapi.co/api/v2/pokemon/${userInput.value}`
+    fetch(url)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log(data) 
+    })
+    .catch(error => {
+        console.error('Error fetching data:', error);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", function() {
