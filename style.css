@@ -23,6 +23,7 @@
     width: 100%;
     position: relative;
     display: flex;
+    text-align: center;
   }
 
   #search-bar {
@@ -65,4 +66,19 @@
 
   #random-btn-container {
     text-align: center;
+  }
+
+  #pokemon-card {
+    border: 6px solid #50514F;
+    margin: 50px;
+    width: auto;
+    text-align: center;
+ }
+  #pokemon-card-container {
+    text-align: center;
+    border: 3px solid #FF0000;
+  }
+
+  p {
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
   }
