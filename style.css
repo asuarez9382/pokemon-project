@@ -1,0 +1,68 @@
+#page-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#pokemon-header {
+    background: linear-gradient(to bottom, #FF0000 54%, #FFFFFF 46%); /* Red and white gradient */
+    color: #50514F; /* Text color */
+    padding: 15px; /* Padding around the content */
+    text-align: center; /* Center-align text */
+    border: 8px solid;
+    border-color: #50514F;
+    font-size: larger;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+  }
+
+  #search-bar-container {
+    padding: 30px;
+    text-align: center;
+  }
+
+  #search-bar-form {
+    width: 100%;
+    position: relative;
+    display: flex;
+  }
+
+  #search-bar {
+    width: 100%;
+    border: 3px solid #50514F;
+    border-right: none;
+    padding: 5px;
+    height: 20px;
+    border-radius: 5px 0 0 5px;
+    outline: none;
+    color: #50514F;
+  }
+
+  #search-btn {
+    width: 40px;
+    height: 36px;
+    border: 3px solid #50514F;
+    border-left: 2px solid #50514F;
+    background: #FF0000 ;
+    text-align: center;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+  }
+  
+  #search-btn-image {
+    width: 19px;
+    height: 19px;
+    object-fit: cover;
+  }
+
+  #random-btn {
+    background: #FF0000 ;
+    text-align: center;
+    font-size: 20px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+  #random-btn-container {
+    text-align: center;
+  }
