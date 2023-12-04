@@ -1,9 +1,24 @@
 //Renders one pokemon to the DOM
 function renderPokemon(data) {
+    const name = data['name'];
+    const type = data["types"]["0"]["type"]["name"];
+    const image = data["sprites"]["other"]["official-artwork"]["front_default"]
+
     console.log(data)
-    console.log(data['name'])
-    console.log(data["types"]["0"]["type"]["name"])
-    console.log(data["sprites"]["other"]["official-artwork"]["front_default"])
+    console.log(name)
+    console.log(type)
+    console.log(image)
+
+    const pokemonCard = document.createElement("li")
+    pokemonCard.id = "pokemon-card"
+    pokemonCard.innerHTML = `
+        <img src=${image} />
+        <h3>${name}</h3>
+        <h4>${type}</h4>
+    `
+
+    const pokemonList = document.querySelector("#pokemon-list")
+    pokemonList.appendChild(pokemonCard)
 }
 
 //handles the submit event by taking the user input and doing a get request to the api
