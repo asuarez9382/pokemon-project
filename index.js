@@ -1,3 +1,31 @@
+//Pokemon Name Data
+
+const url = `https://pokeapi.co/api/v2/pokemon?limit=100000&offset=0`
+fetch(url)
+.then(response => {
+    if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+    return response.json();
+})
+.then(data => getsPokemonNames(data))
+.catch(error => {
+    console.error('Error fetching data:', error);
+});
+
+//Grabs all the names of the Pokemon from the API
+function getsPokemonNames(data) {
+    const pokemonNames = []
+    for(item of data['results']) {
+        pokemonNames.push(item['name'])
+    }
+    console.log(pokemonNames.length)
+}
+
+
+  
+
+
 //Renders one pokemon to the DOM
 function renderPokemon(data) {
     const name = data['name'];
