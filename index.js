@@ -3,18 +3,24 @@ function renderPokemon(data) {
     const name = data['name'];
     const type = data["types"]["0"]["type"]["name"];
     const image = data["sprites"]["other"]["official-artwork"]["front_default"]
+    const experience = data["base_experience"]
 
     console.log(data)
     console.log(name)
     console.log(type)
     console.log(image)
+    console.log(experience)
 
-    const pokemonCard = document.createElement("li")
+    const pokemonCard = document.createElement("p")
     pokemonCard.id = "pokemon-card"
     pokemonCard.innerHTML = `
-        <img src=${image} />
-        <h3>${name}</h3>
-        <h4>${type}</h4>
+        <div id="pokemon-card-container">
+            <h2>${name.toUpperCase()}</h2>
+            <img src=${image} />
+            <p>TYPE: ${type.toUpperCase()}</p>
+            <p>EXPERIENCE: ${experience.toString().toUpperCase()}
+            
+        </div>
     `
 
     const pokemonList = document.querySelector("#pokemon-list")
