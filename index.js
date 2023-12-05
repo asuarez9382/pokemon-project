@@ -15,7 +15,7 @@ function renderRandomPokemon(pokemonNames) {
 
     const pokemonList = document.getElementById('pokemon-list');
     pokemonList.innerHTML = ''; // Clear previous entries
-    
+
     //Loops through the pokemon objects and renders each to the DOM
     for(pokemonObject of shuffledNames.slice(0, 5)) {
         
@@ -50,12 +50,15 @@ function renderPokemon(data) {
             <img src=${image} />
             <p>TYPE: ${type.toUpperCase()}</p>
             <p>EXPERIENCE: ${experience.toString().toUpperCase()}
-            
+            <br>
+            <br>
+           <button id="delete-btn">Delete</button>
         </div>
     `
-
     const pokemonList = document.querySelector("#pokemon-list")
+
     pokemonList.appendChild(pokemonCard)
+    
 }
 
 //Handlers
@@ -105,6 +108,8 @@ document.addEventListener("DOMContentLoaded", function() {
 
     //Adds an event listener on the random button
     randomBtn.addEventListener("click", handleClick)
+
+
 })
 
  
