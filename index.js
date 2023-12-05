@@ -59,6 +59,11 @@ function renderPokemon(data) {
 
     pokemonList.appendChild(pokemonCard)
     
+    deleteBtn = document.querySelector("#delete-btn")
+    deleteBtn.addEventListener("click", event => {
+        console.log("deleted")
+    })
+    
 }
 
 //Handlers
