@@ -2,9 +2,11 @@
 //Grabs all the names of the Pokemon from the API
 function getsPokemonNames(data) {
     const pokemonNames = []
-    for(item of data['results']) {
+    /*for(item of data['results']) {
         pokemonNames.push(item)
-    }
+    }*/
+
+    data['results'].forEach(item => pokemonNames.push(item))
     renderRandomPokemon(pokemonNames)
 }
 
@@ -59,6 +61,7 @@ function renderPokemon(data) {
 
     pokemonList.appendChild(pokemonCard)
     
+    //Deletes pokemon card from the DOM when delete is clicked
     deleteBtn = pokemonCard.querySelector("#delete-btn")
     deleteBtn.addEventListener("click", () => {
         pokemonCard.remove()
