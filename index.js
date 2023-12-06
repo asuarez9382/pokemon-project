@@ -2,10 +2,8 @@
 //Grabs all the names of the Pokemon from the API
 function getsPokemonNames(data) {
     const pokemonNames = []
-    /*for(item of data['results']) {
-        pokemonNames.push(item)
-    }*/
-
+    
+    //Adds each pokemon object to the pokemonNames list
     data['results'].forEach(item => pokemonNames.push(item))
     renderRandomPokemon(pokemonNames)
 }
@@ -63,10 +61,13 @@ function renderPokemon(data) {
     
     //Deletes pokemon card from the DOM when delete is clicked
     deleteBtn = pokemonCard.querySelector("#delete-btn")
+
     deleteBtn.addEventListener("click", () => {
         pokemonCard.remove()
 
     } )
+
+    
     
 }
 
@@ -111,6 +112,7 @@ function handleSubmit(event) {
 document.addEventListener("DOMContentLoaded", function() {
     const searchBarForm = document.querySelector("#search-bar-form")
     const randomBtn = document.querySelector("#random-btn")
+    const searchBtn = document.querySelector("#search-btn")
 
     //Adds an event listener on the search bar button 
     searchBarForm.addEventListener("submit", handleSubmit)
@@ -118,6 +120,26 @@ document.addEventListener("DOMContentLoaded", function() {
     //Adds an event listener on the random button
     randomBtn.addEventListener("click", handleClick)
 
+    //Changes color to random button when moused over
+    randomBtn.addEventListener('mouseover', function () {
+        randomBtn.style.backgroundColor = '#3D7DCA';
+    });
+    
+    //Changes color back to random button when moused out
+    randomBtn.addEventListener('mouseout', function () {
+        randomBtn.style.backgroundColor = ''; // Reset to the default background color
+    });
+
+    //Changes color to search button when moused over
+    searchBtn.addEventListener('mouseover', function () {
+        searchBtn.style.backgroundColor = '#3D7DCA';
+    });
+
+    //Changes color back to search button when moused out
+    searchBtn.addEventListener('mouseout', function () {
+        searchBtn.style.backgroundColor = '';
+    });
+      
 
 })
 
