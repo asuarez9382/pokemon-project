@@ -52,7 +52,7 @@ function renderPokemon(data) {
             <p>EXPERIENCE: ${experience.toString().toUpperCase()}
             <br>
             <br>
-           <button id="delete-btn">Delete</button>
+           <button class="delete-btn">Delete</button>
         </div>
     `
     const pokemonList = document.querySelector("#pokemon-list")
@@ -60,12 +60,22 @@ function renderPokemon(data) {
     pokemonList.appendChild(pokemonCard)
     
     //Deletes pokemon card from the DOM when delete is clicked
-    deleteBtn = pokemonCard.querySelector("#delete-btn")
+    const deleteBtn = pokemonCard.querySelector(".delete-btn")
 
     deleteBtn.addEventListener("click", () => {
         pokemonCard.remove()
 
     } )
+
+    //Changes color to search button when moused over
+    deleteBtn.addEventListener('mouseover', function () {
+        deleteBtn.style.backgroundColor = '#3D7DCA'
+    });
+
+    //Changes color back to search button when moused out
+    deleteBtn.addEventListener('mouseout', function () {
+        deleteBtn.style.backgroundColor = ''
+    });
 
     
     
