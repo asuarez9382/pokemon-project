@@ -1,4 +1,6 @@
 
+//Helper functions
+
 //Displays error message
 function displayErrorMessage(message) {
     const searchInput = document.getElementById('search-bar');
@@ -145,6 +147,8 @@ function handleSubmit(event) {
         console.error('Error fetching data:', error);
     });
 }
+
+
 
 document.addEventListener("DOMContentLoaded", function() {
     const searchBarForm = document.querySelector("#search-bar-form")
