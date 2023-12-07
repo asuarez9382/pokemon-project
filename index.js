@@ -21,7 +21,7 @@ function displayErrorMessage(message) {
     const existingErrorMessages = document.querySelector('#error-message-container');
     
     setTimeout(() => {
-        existingErrorMessages.remove();
+        existingErrorMessages.querySelector('p').remove();
       }, 3000);
   }
 
