@@ -82,3 +82,14 @@
   p {
     font-family: "Comic Sans MS", "Comic Sans", cursive;
   }
+  
+  .delete-btn {
+    background: #FF0000 ;
+    text-align: right;
+    font-size: 20px;
+    font-family: "Comic Sans MS", "Comic Sans", cursive;
+    padding: 5px;
+    cursor: pointer;
+  }
+
+ 
