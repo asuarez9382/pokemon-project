@@ -1,4 +1,30 @@
 
+//Displays error message
+function displayErrorMessage(message) {
+    const searchInput = document.getElementById('search-bar');
+    const errorMessageContainer = document.getElementById('error-message-container');
+
+    // Create a message element
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = message;
+    errorMessage.style.color = 'red';
+  
+    // Clear previous error messages
+    
+  
+    // Append the error message to the Pokemon list container
+    errorMessageContainer.appendChild(errorMessage);
+  
+    // Clear the search input (optional)
+    searchInput.value = '';
+
+    const existingErrorMessages = document.querySelector('#error-message-container');
+    
+    setTimeout(() => {
+        existingErrorMessages.remove();
+      }, 3000);
+  }
+
 //Grabs all the names of the Pokemon from the API
 function getsPokemonNames(data) {
     const pokemonNames = []
@@ -67,12 +93,12 @@ function renderPokemon(data) {
 
     } )
 
-    //Changes color to search button when moused over
+    //Changes color to delete button when moused over
     deleteBtn.addEventListener('mouseover', function () {
         deleteBtn.style.backgroundColor = '#3D7DCA'
     });
 
-    //Changes color back to search button when moused out
+    //Changes color back to delete button when moused out
     deleteBtn.addEventListener('mouseout', function () {
         deleteBtn.style.backgroundColor = ''
     });
@@ -109,6 +135,7 @@ function handleSubmit(event) {
     fetch(url)
     .then(response => {
         if (!response.ok) {
+            displayErrorMessage('Invalid Pokemon name. Please enter a valid name.');
             throw new Error(`HTTP error! Status: ${response.status}`);
         }
         return response.json();
