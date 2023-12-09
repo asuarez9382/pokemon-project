@@ -9,8 +9,8 @@ Welcome to the Pokemon-Database! This is a application that is used for searchin
 
 ## Technologies Used
 - Javascript
-- Html
-- Css
+- HTML
+- CSS
 
 
 ## Acknowledgements
