@@ -4,7 +4,7 @@ Welcome to the Pokemon-Database! This is a application that is used for searchin
 
 ## Features
 - **Search for Pokemon:** Use the search bar to search for a desired pokemon.
-- **Random Pokemon:** Click the random button to display a set of random pokemon.
+- **Random Pokemon:** Click the random button to display a random set of pokemon.
 - **Delete Pokemon:** Click the delete button within the displayed pokemon card to delete the pokemon.
 
 ## Technologies Used
